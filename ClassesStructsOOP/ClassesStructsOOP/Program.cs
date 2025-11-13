@@ -7,7 +7,7 @@
 
         public Character()
         {
-            name = "Not assigned";
+            Reset();
         }
 
         public Character (string name)
@@ -94,7 +94,6 @@
             warBow.PrintWeaponStats();
 
             // Encapsulation practice
-            // Reset() method is inaccessible due to its protection level
             // hero.Reset();
 
             //Inheritance practice
@@ -103,6 +102,12 @@
 
             Paladin knight = new Paladin("Lancelot", arondight);
             knight.PrintStatsInfo();
+
+            Adventurer waver = new Adventurer("Waver");
+            waver.PrintStatsInfo();
+
+            Person vivian = new Person("Vivian");
+            vivian.PrintStatsInfo();
         }
     }
 }
