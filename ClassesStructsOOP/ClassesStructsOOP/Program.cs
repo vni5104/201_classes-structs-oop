@@ -15,7 +15,7 @@
             this.name = name;
         }
 
-        public void PrintStatsInfo()
+        public virtual void PrintStatsInfo()
         {
             Console.WriteLine($"Hero: {this.name} - {this.exp} EXP");
         }
@@ -29,7 +29,17 @@
 
     public class Paladin: Character
     {
-        public Paladin(string name): base(name) { }
+        public Weapon weapon;
+
+        public Paladin(string name, Weapon weapon): base(name)
+        {
+            this.weapon = weapon;
+        }
+
+        public override void PrintStatsInfo()
+        {
+            Console.WriteLine($"Hail {this.name} - take up your {this.weapon.name}!");
+        }
     }
 
     public struct Weapon
@@ -88,7 +98,10 @@
             // hero.Reset();
 
             //Inheritance practice
-            Paladin knight = new Paladin("Lancelot");
+            Weapon arondight = new Weapon("Arondight", 200);
+            arondight.PrintWeaponStats();
+
+            Paladin knight = new Paladin("Lancelot", arondight);
             knight.PrintStatsInfo();
         }
     }
