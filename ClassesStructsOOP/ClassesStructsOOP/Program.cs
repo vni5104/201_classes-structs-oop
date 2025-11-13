@@ -19,6 +19,17 @@
         {
             Console.WriteLine($"Hero: {this.name} - {this.exp} EXP");
         }
+
+        private void Reset()
+        {
+            this.name = "Not assigned";
+            this.exp = 0;
+        }
+    }
+
+    public class Paladin: Character
+    {
+        public Paladin(string name): base(name) { }
     }
 
     public struct Weapon
@@ -42,18 +53,18 @@
     {
         static void Main(string[] args)
         {
-            //Character class instances
+            // Character class instances
             Character hero = new Character();
             hero.PrintStatsInfo();
 
             Character heroine = new Character("Artoria");
             heroine.PrintStatsInfo();
 
-            //Weapon struct instance
+            // Weapon struct instance
             Weapon huntingBow = new Weapon("Hunting Bow", 105);
             huntingBow.PrintWeaponStats();
 
-            //Testing reference types
+            // Testing reference types
             Character villain = hero;
             hero.PrintStatsInfo();
             villain.PrintStatsInfo();
@@ -62,7 +73,7 @@
             hero.PrintStatsInfo();
             villain.PrintStatsInfo();
 
-            //Testing value types
+            // Testing value types
             Weapon warBow = huntingBow;
             huntingBow.PrintWeaponStats();
             warBow.PrintWeaponStats();
@@ -71,6 +82,14 @@
             warBow.damage = 155;
             huntingBow.PrintWeaponStats();
             warBow.PrintWeaponStats();
+
+            // Encapsulation practice
+            // Reset() method is inaccessible due to its protection level
+            // hero.Reset();
+
+            //Inheritance practice
+            Paladin knight = new Paladin("Lancelot");
+            knight.PrintStatsInfo();
         }
     }
 }
