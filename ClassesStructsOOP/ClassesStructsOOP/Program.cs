@@ -42,14 +42,25 @@
     {
         static void Main(string[] args)
         {
+            //Character class instances
             Character hero = new Character();
             hero.PrintStatsInfo();
 
             Character heroine = new Character("Artoria");
             heroine.PrintStatsInfo();
 
+            //Weapon struct instance
             Weapon huntingBow = new Weapon("Hunting Bow", 105);
             huntingBow.PrintWeaponStats();
+
+            //Testing reference types
+            Character villain = hero;
+            hero.PrintStatsInfo();
+            villain.PrintStatsInfo();
+
+            villain.name = "Gilgamesh";
+            hero.PrintStatsInfo();
+            villain.PrintStatsInfo();
         }
     }
 }
